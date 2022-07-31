@@ -1,33 +1,47 @@
-.. _hello_world:
-
-Hello World
+ESP WROVER Standalone project template and custom board
 ###########
 
 Overview
 ********
 
-A simple sample that can be used with any :ref:`supported board <boards>` and
-prints "Hello World" to the console.
+A simple sample that can be used off-tree. It includes a custom board called ESP_CUSTOM
 
 Building and Running
 ********************
 
-This application can be built and executed on QEMU as follows:
+This application can be built and executed as follows:
 
-.. zephyr-app-commands::
-   :zephyr-app: samples/hello_world
-   :host-os: unix
-   :board: qemu_x86
-   :goals: run
-   :compact:
+First make sure the toolchain is installed and the toolchain env paths
 
-To build for another board, change "qemu_x86" above to that board's name.
+From inside zephyrproject/zephyr:
+.. code-block:: console
+   >west update
+   
+   >west espressif update
+   
+   >west espressif install
+   
+Then you must add toolchain variables into the environment
+.. code-block:: console
 
-Sample Output
+   >export ESPRESSIF_TOOLCHAIN_PATH=”/home/yourusername/.espressif/tools/zephyr”
+   
+   >export ESPRESSIF_TOOLCHAIN_VARIANT=”espressif”
+   
+
+
+To Build and run
 =============
 
 .. code-block:: console
+   
+   > west build -p -b esp_custom
+   
+   > west flash
+   
+   > west espressif monitor
 
-    Hello World! x86
 
-Exit QEMU by pressing :kbd:`CTRL+A` :kbd:`x`.
+
+  
+Exit themonitor with  :kbd:`CTRL+]` 
