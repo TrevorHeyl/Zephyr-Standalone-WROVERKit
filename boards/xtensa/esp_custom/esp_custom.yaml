@@ -1,0 +1,14 @@
+identifier: esp_custom
+name: ESP CUSTOM
+type: mcu
+arch: xtensa
+toolchain:
+  - espressif
+supported:
+  - gpio
+  - i2c
+  - spi
+  - watchdog
+  - uart
+  - pinmux
+  - nvs
